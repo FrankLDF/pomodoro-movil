@@ -4,12 +4,12 @@ import {
   View,
   SafeAreaView,
   Platform,
-  TouchableOpacity,
 } from "react-native";
-import { useState, useEffect } from "react";
+import { useState,} from "react";
 
 import Header from "./src/components/atoms/header";
 import Timer from "./src/components/atoms/timer";
+import ButtonRunTime from "./src/components/atoms/button"
 
 const colors = ["#F7DC6F", "#A2DADF", "#D7BDE2"];
 
@@ -29,12 +29,19 @@ export default function App() {
         }}
       >
         <Text style={styles.titleText}>Pomodoro</Text>
+        <Text style={styles.infoText}>By: Frank 2021-0226 and Enmanuel 2021-0618 </Text>
         <Header
           currentTime={currentTime}
           setCurrentTime={setCurrentTime}
           setTime={setTime}
         />
         <Timer time={time} />
+
+        <ButtonRunTime
+          setTime={setTime}
+          setIsWorking={setIsWorking}
+          time={time}
+        />
       </View>
     </SafeAreaView>
   );
@@ -51,11 +58,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-  button: {
-    backgroundColor: "#444",
-    padding: 15,
-    marginTop: 15,
-    borderRadius: 15,
-    alignItems: "center",
+  infoText: {
+    color: "#666",
+    fontSize: 25,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
