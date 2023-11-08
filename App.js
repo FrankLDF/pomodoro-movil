@@ -9,6 +9,7 @@ import {
 import { useState, useEffect } from "react";
 
 import Header from "./src/components/atoms/header";
+import Timer from "./src/components/atoms/timer";
 
 const colors = ["#F7DC6F", "#A2DADF", "#D7BDE2"];
 
@@ -33,6 +34,7 @@ export default function App() {
           setCurrentTime={setCurrentTime}
           setTime={setTime}
         />
+        <Timer time={time} />
       </View>
     </SafeAreaView>
   );
