@@ -1,5 +1,7 @@
 import { Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useState, useEffect } from "react";
+import { Audio } from "expo-av";
+
 
 export default function ButtonRunTime({ setTime, setIsWorking, time }){
   const [isActive, setIsActive] = useState(false);
@@ -14,17 +16,26 @@ export default function ButtonRunTime({ setTime, setIsWorking, time }){
       clearInterval(interval);
     }
     if (time === 0) {
+      PlaySound()
       setIsActive(false);
       setIsWorking((prev) => !prev);
-      setTime(isWorking ? 300 : 1500);
+      setTime(setIsWorking ? 300 : 1500);
     }
     return () => clearInterval(interval);
   }, [isActive, time])
     
     
   function handleStartStop() {
+    PlaySound()
     setIsActive(!isActive);
   };
+
+  async function PlaySound() {
+    const { sound } = await Audio.Sound.createAsync(
+      require("../noti.mp3")
+    )
+    await sound.playAsync();
+  }
     
   return (
     <TouchableOpacity onPress={handleStartStop} style={styles.button}>
