@@ -44,7 +44,10 @@ After that, expo go will send you a QR which you will scan and you can use the a
 
 ## App_preview
 
+![hola](/assets/Pre.jpeg)
+
 ## Collaborators
 
+![hola](/assets/Coll.png)
 
 
